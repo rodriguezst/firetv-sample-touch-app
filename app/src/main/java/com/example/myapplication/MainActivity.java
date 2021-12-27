@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         openVPN.putExtra("net.openvpn.openvpn.AUTOCONNECT", true);
         openVPN.putExtra("net.openvpn.openvpn.APP_SECTION", "PC");
 
-        if (openVPN.resolveActivity(getActivity().getPackageManager()) != null) {
+        if (openVPN.resolveActivity(this.getPackageManager()) != null) {
 		    startActivity(openVPN);
         }
 
