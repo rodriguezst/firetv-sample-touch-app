@@ -55,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
         rowAdapter = new RowAdapter(rowDataSet);
         recyclerView4.setAdapter(rowAdapter);
 
+        Intent openVPN = new Intent("net.openvpn.openvpn.CONNECT");
+        openVPN.setPackage("net.openvpn.openvpn");
+        openVPN.setClassName("net.openvpn.openvpn", "net.openvpn.unified.MainActivity");
+        openVPN.putExtra("net.openvpn.openvpn.AUTOSTART_PROFILE_NAME", "PC FireTV ");
+        openVPN.putExtra("net.openvpn.openvpn.AUTOCONNECT", true);
+        openVPN.putExtra("net.openvpn.openvpn.APP_SECTION", "PC");
+
+        if (openVPN.resolveActivity(getActivity().getPackageManager()) != null) {
+		    startActivity(openVPN);
+        }
 
     }
 
